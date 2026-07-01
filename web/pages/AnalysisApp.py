@@ -59,7 +59,7 @@ def load_data():
 new_df, df = load_data()
 
 # ── Title ──────────────────────────────────────────────────────────────────────
-st.title("🏠 Gurgaon Property Analytics")
+st.title("Gurgaon Property Analytics")
 st.caption("Exploring real estate trends across sectors — prices, amenities, and investment signals.")
 st.divider()
 
@@ -73,7 +73,7 @@ k4.metric("Sectors Covered",   new_df['sector'].nunique())
 st.divider()
 
 # ── 1. Sector Geomap ───────────────────────────────────────────────────────────
-st.subheader("📍 Sector-wise Price per Sqft — Map")
+st.subheader("Sector-wise Price per Sqft — Map")
 st.caption("Bubble size = avg built-up area · Colour = price per sqft")
 
 group_df = (
@@ -96,7 +96,7 @@ st.plotly_chart(fig_map, use_container_width=True)
 st.divider()
 
 # ── 2. Investment Bubble Chart ─────────────────────────────────────────────────
-st.subheader("💰 Sector Investment Overview")
+st.subheader("Sector Investment Overview")
 st.caption("Luxury vs Price · Bubble size = avg rating · Hover for details")
 
 sector_stats = (
@@ -139,7 +139,7 @@ st.divider()
 col1, col2 = st.columns([3, 2], gap="large")
 
 with col1:
-    st.subheader("🏆 Top 15 Most Expensive Sectors")
+    st.subheader("Top 15 Most Expensive Sectors")
     sector_price = (
         new_df.groupby('sector')['price']
               .mean()
@@ -163,7 +163,7 @@ with col1:
     st.plotly_chart(fig_bar, use_container_width=True)
 
 with col2:
-    st.subheader("🛏 BHK Distribution")
+    st.subheader("BHK Distribution")
     sector_opts = ["Overall"] + sorted(new_df['sector'].dropna().unique().tolist())
     sel_sector_pie = st.selectbox("Filter by Sector", sector_opts, key="pie_sec")
 
@@ -180,7 +180,7 @@ with col2:
 st.divider()
 
 # ── 4. Area vs Price ───────────────────────────────────────────────────────────
-st.subheader("📐 Area vs Price")
+st.subheader("Area vs Price")
 st.caption("Coloured by number of bedrooms")
 
 prop_type = st.selectbox("Property Type", ["flat", "house"], key="area_prop")
@@ -200,7 +200,7 @@ st.divider()
 col3, col4 = st.columns(2, gap="large")
 
 with col3:
-    st.subheader("📦 BHK Price Range")
+    st.subheader("BHK Price Range")
     fig_box = px.box(
         new_df[new_df['bedRoom'] <= 4],
         x='bedRoom', y='price',
@@ -212,7 +212,7 @@ with col3:
     st.plotly_chart(fig_box, use_container_width=True)
 
 with col4:
-    st.subheader("📊 Price Distribution — House vs Flat")
+    st.subheader("Price Distribution — House vs Flat")
     fig_dist, ax = plt.subplots(figsize=(7, 4))
     sns.kdeplot(
         new_df[new_df['property_type'] == 'house']['price'],
@@ -232,7 +232,7 @@ with col4:
 st.divider()
 
 # ── 6. Amenities Word Cloud ────────────────────────────────────────────────────
-st.subheader("☁️ Amenities Word Cloud")
+st.subheader("Amenities Word Cloud")
 
 sel_sector_wc = st.selectbox(
     "Select Sector",
@@ -264,7 +264,7 @@ else:
 st.divider()
 
 # ── 7. Correlation Heatmap (collapsed by default) ─────────────────────────────
-with st.expander("🔗 Correlation Heatmap  (advanced)"):
+with st.expander("Correlation Heatmap  (advanced)"):
     st.caption("Pairwise correlations between all numeric features")
     corr = new_df.select_dtypes(include='number').corr()
     fig_corr = px.imshow(
