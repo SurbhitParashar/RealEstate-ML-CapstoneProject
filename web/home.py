@@ -33,7 +33,7 @@ div[data-testid="metric-container"] {
     border:1px solid #E5E7EB;
     border-left: 4px solid #2563EB;
     border-radius:10px;
-    padding:25px;
+    padding:20px;
     min-height:320px;
     box-sizing:border-box;
     box-shadow:0px 2px 6px rgba(0,0,0,0.05);
@@ -58,29 +58,36 @@ div[data-testid="metric-container"] {
     color:#374151;
 }
 
-.tech-card{
-    background-color:#ffffff;
-    border:1px solid #E5E7EB;
-    border-radius:10px;
-    padding:20px 25px;
-    box-sizing:border-box;
-    box-shadow:0px 2px 6px rgba(0,0,0,0.05);
+/* Tech Stack Cards */
+.tech-card {
+    background-color: #F9FAFB;
+    border: 1px solid #E5E7EB;
+    border-radius: 10px;
+    padding: 24px 28px;
+    box-sizing: border-box;
+    box-shadow: 0px 1px 4px rgba(0,0,0,0.06);
+    min-height: 210px;
 }
 
-.tech-card p{
-    margin-bottom:6px;
-    margin-top:16px;
+.tech-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.9px;
+    text-transform: uppercase;
+    color: #6B7280;
+    margin: 18px 0 6px 0;
 }
 
-.tech-card p:first-child{
-    margin-top:0;
+.tech-label:first-child {
+    margin-top: 0;
 }
 
-.tech-card ul{
-    margin:0 0 4px 0;
-    padding-left:20px;
-    line-height:1.7;
-    color:#374151;
+.tech-card ul {
+    margin: 0;
+    padding-left: 18px;
+    line-height: 1.85;
+    color: #1F2937;
+    font-size: 14px;
 }
 
 .section-divider{
@@ -228,33 +235,40 @@ st.markdown("<br>", unsafe_allow_html=True)
 
 st.header("Technology Stack")
 
-left, right = st.columns(2)
+c1, c2, c3 = st.columns(3)
 
-with left:
-
+with c1:
     st.markdown(
         '<div class="tech-card">'
-        '<p><strong>Programming</strong></p>'
+        '<p class="tech-label">Programming</p>'
         '<ul><li>Python</li><li>SQL</li></ul>'
-        '<p><strong>Machine Learning</strong></p>'
-        '<ul><li>Scikit-learn</li><li>Random Forest</li><li>TF-IDF</li>'
-        '<li>Cosine Similarity</li></ul>'
-        '<p><strong>Data Processing</strong></p>'
+        '<p class="tech-label">Data Processing</p>'
         '<ul><li>Pandas</li><li>NumPy</li></ul>'
         '</div>',
         unsafe_allow_html=True
     )
 
-with right:
-
+with c2:
     st.markdown(
         '<div class="tech-card">'
-        '<p><strong>Visualization</strong></p>'
+        '<p class="tech-label">Machine Learning</p>'
+        '<ul>'
+        '<li>Scikit-learn</li>'
+        '<li>Random Forest Regressor</li>'
+        '<li>TF-IDF Vectorizer</li>'
+        '<li>Cosine Similarity</li>'
+        '</ul>'
+        '</div>',
+        unsafe_allow_html=True
+    )
+
+with c3:
+    st.markdown(
+        '<div class="tech-card">'
+        '<p class="tech-label">Visualization</p>'
         '<ul><li>Plotly</li><li>Matplotlib</li></ul>'
-        '<p><strong>Deployment</strong></p>'
-        '<ul><li>Streamlit</li><li>AWS EC2</li></ul>'
-        '<p><strong>Development Tools</strong></p>'
-        '<ul><li>Git</li><li>Jupyter Notebook</li></ul>'
+        '<p class="tech-label">Deployment & Tools</p>'
+        '<ul><li>Streamlit</li><li>AWS EC2</li><li>Git</li><li>Jupyter Notebook</li></ul>'
         '</div>',
         unsafe_allow_html=True
     )
