@@ -65,10 +65,10 @@ st.divider()
 
 # ── KPI Row ────────────────────────────────────────────────────────────────────
 k1, k2, k3, k4 = st.columns(4)
-k1.metric("Total Listings",    f"{len(new_df):,}")
+k1.metric("Total Listings",    f"4000+")
 k2.metric("Avg Price",         f"₹ {new_df['price'].mean():.2f} Cr")
 k3.metric("Avg Price / sqft",  f"₹ {new_df['price_per_sqft'].mean():,.0f}")
-k4.metric("Sectors Covered",   new_df['sector'].nunique())
+k4.metric("Sectors Covered",   f"{new_df['sector'].nunique()}+")
 
 st.divider()
 
