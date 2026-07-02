@@ -71,7 +71,7 @@ selected_location = st.selectbox(
 
 radius = st.number_input(
     "Radius (Km)",
-    min_value=0.5,
+    min_value=0.0,
     step=0.5
 )
 
@@ -88,7 +88,7 @@ if st.button("Search"):
 
 if st.session_state.search_results is not None:
 
-    st.subheader("Properties Found")
+    
 
     result_ser = st.session_state.search_results
 
@@ -96,6 +96,7 @@ if st.session_state.search_results is not None:
         st.warning("No properties found.")
 
     else:
+        st.subheader("Properties Found")
         for property_name, distance in result_ser.items():
 
             c1, c2, c3 = st.columns([5,2,3])
