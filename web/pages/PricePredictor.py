@@ -37,7 +37,9 @@ property_age = st.selectbox('Property Age',sorted(df['age_category'].unique().to
 
 furnishing_type = st.selectbox('Furnishing Type',sorted(df['furnishing_type'].unique().tolist()))
 rating=float(st.selectbox('Rating',sorted(df['combined_rating'].unique().tolist())))
+
 luxury_category = st.selectbox('Luxury Category',sorted(df['luxury_category'].unique().tolist()))
+
 floor_category = st.selectbox('Floor Category',sorted(df['floor_category'].unique().tolist()))
 
 # property_type	sector	bedRoom	bathroom	balcony	facing	built_up_area	servant room	age_category	furnishing_type	combined_rating	luxury_category	floor_category
